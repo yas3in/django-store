@@ -5,10 +5,10 @@ from wallet.models import Transaction, UserBalance
 
 @register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("user", "transaction_type", "amount", "created_time")
 
 
 
 @register(UserBalance)
 class UserBalanceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("user", "balance", "created_time")
