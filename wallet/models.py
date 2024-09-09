@@ -37,7 +37,7 @@ class UserBalance(models.Model):
     
     
     @classmethod
-    def created_instance(cls, user):
+    def create_instance_in_table(cls, user):
         """
         transaction its related name`s Transction model to User model
         
@@ -58,7 +58,7 @@ class UserBalance(models.Model):
         
     
     @classmethod
-    def create_record_balance(cls):
+    def create_record_in_table(cls):
         for user in User.objects.all():
-            r = cls.created_instance(user)
-            print(r)
+            record = cls.create_instance_in_table(user)
+            
