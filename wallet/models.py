@@ -1,7 +1,8 @@
 from django.db import models
 from blog.models import User
 from django.db.models import Sum, Count, Q
-from django.db.models.functions import Coalesce
+from django.db.models.functions import Coalesce 
+from django.db.transaction import atomic
 
 
 class Transaction(models.Model):
@@ -83,16 +84,17 @@ class TransferTransaction(models.Model):
         if Transaction.balance(sender) < amount:
             return "You can`t transfer, because your amount not enough"
         
-        sender_transaction = Transaction.objects.create(
-            user=sender, amount=amount, transaction_type=Transaction.TRANSFER_SENT
-        )
-        
-        receiver_transaction = Transaction.objects.create(
-            user=receiver, amount=amount, transaction_type=Transaction.TRANSFER_RECEIVED
-        )
-        
-        instance = cls.objects.create(
-            sender_transaction=sender_transaction, receiver_transaction=receiver_transaction
-        )
+        with atomic():
+            sender_transaction = Transaction.objects.create(
+                user=sender, amount=amount, transaction_type=Transaction.TRANSFER_SENT
+            )
+            
+            receiver_transaction = Transaction.objects.create(
+                user=receiver, amount=amount, transaction_type=Transaction.TRANSFER_RECEIVED
+            )
+            
+            instance = cls.objects.create(
+                sender_transaction=sender_transaction, receiver_transaction=receiver_transaction
+            )
         
         return instance
