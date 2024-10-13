@@ -5,6 +5,7 @@ from wallet.models import Transaction, UserBalance
 
 @register(Transaction)
 class TransactionAdmin(admin.ModelAdmin):
+    delete_confirmation_template = True
     list_display = ("user", "transaction_type", "amount", "created_time")
 
 

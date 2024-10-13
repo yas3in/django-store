@@ -69,6 +69,9 @@ class UserBalance(models.Model):
         for user in User.objects.all():
             record = cls.create_instance_in_table(user)
             
+            
+    
+            
         
 class TransferTransaction(models.Model):
     sender_transaction = models.ForeignKey(Transaction, related_name="sender_transaction", on_delete=models.RESTRICT)
