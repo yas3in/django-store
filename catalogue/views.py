@@ -10,3 +10,8 @@ def products(request):
     context['products'] = products
     return render(request, 'catalogue/products.html', context)
     
+def product_detail(request, id):
+    context = {}
+    products = Product.objects.filter(id=id)
+    context['products'] = products
+    return render(request, 'catalogue/product_detail.html', context)
