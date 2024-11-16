@@ -1,9 +1,10 @@
 from webdesign.urls import path
-from blog.views import post_blog, filter_post_city_list
+from blog.views import post_blog, filter_post_city_list, blogs
 from django.urls import re_path
 
 
 urlpatterns = [
+    path("", blogs),
     path('list/', post_blog),
     #get a number for show in url
     #variable use to path in <> and can use thi varibale in function
