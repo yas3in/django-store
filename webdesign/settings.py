@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'blog.apps.BlogConfig',
-    'catalouge.apps.CatalougeConfig',
+    'catalogue.apps.CatalogueConfig',
     'wallet.apps.WalletConfig',
     'partner.apps.PartnerConfig',
     'basket.apps.BasketConfig'

@@ -1,19 +1,7 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
-
-class User(models.Model):
-    username = models.CharField(max_length=32, primary_key=True)
-    password = models.CharField(max_length=32)
-    
-    
-    class meta:
-        verbos_name_prulal = "users"
-        
-        
-    def __str__(self) -> str:
-        return self.username
-        
+       
 class Post(models.Model):
     first_name = models.CharField(max_length=32)
     last_name = models.CharField(max_length=32, blank=True)

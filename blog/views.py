@@ -4,14 +4,14 @@ from django.http import HttpResponse
 # Create your views here.
 
 
-def first_blog(request):
+def blogs(request):
     text = """
-    Hello! this is for blog in first django web. thank you.
+    Hello! this is blogs page for show all blogs
     """
     return HttpResponse(text)    
 
 
-def post_pages(request):
+def post_blog(request):
     return HttpResponse("Blog pages: ")
 
 

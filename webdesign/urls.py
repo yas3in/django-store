@@ -16,14 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from blog.views import first_blog
+from blog.views import blogs 
 from webdesign.views import main
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main),
     path('blog/', include('blog.urls')),
-    path('blog', first_blog),
-    path('catalouge/', include("catalouge.urls")),
+    path('blog', blogs),
+    path('catalogue/', include("catalogue.urls")),
     path('wallet/', include('wallet.urls'))
 ]

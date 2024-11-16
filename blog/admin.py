@@ -1,16 +1,7 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from blog.models import User, Post
+from blog.models import Post
 
-
-# Register your models here.
-
-
-@register(User)
-class UserAdmin(admin.ModelAdmin):
-    list_display = ["username", "password"]
-    search_fields = ("username",)
-    
 
 @register(Post)
 class PostAdmin(admin.ModelAdmin):
