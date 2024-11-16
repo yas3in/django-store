@@ -13,7 +13,7 @@ class Partner(models.Model):
     
 class PartnerStock(models.Model):
     partner = models.ForeignKey(Partner, related_name="partner", on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, related_name="partner_product", on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, related_name="partner", on_delete=models.CASCADE)
     price = models.PositiveBigIntegerField(default=0)
     
     

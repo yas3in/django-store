@@ -66,7 +66,7 @@ class Product(models.Model):
 
     @property
     def stock(self):
-        return self.partners.all.order_by('price').first()
+        return self.partner.all().order_by('price').first()
         
         
 class ProductAttributeValue(models.Model):
