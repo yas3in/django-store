@@ -68,14 +68,15 @@ class Product(models.Model):
     def stock(self):
         return self.partners.all.order_by('price').first()
         
+        
 class ProductAttributeValue(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="attribute_value")
-    value = models.CharField(max_length=40)
     attribute = models.ForeignKey(ProductAttribute, on_delete=models.PROTECT, related_name="value")
+    value = models.CharField(max_length=40)
     
     
     def __str__(self):
-        return self.product
+        return f"{self.product}"
     
 
 class ProductImage(models.Model):

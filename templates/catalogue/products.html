@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محصولات</title>
+</head>
+<body>
+    {% for product in products %}
+    <div class="product">
+        <br>
+        {{product.title}}
+        {{product.ups}}<br>
+        {{product.description}}<br>
+        {{product.product_type}}<br>
+        {{product.brand}}<br>
+        {{product.is_active}}<br>
+        {{product.category}}<br>
+    </div>
+    {% endfor %}
+</body>
+</html>

@@ -3,9 +3,10 @@ from django.http import HttpResponse
 from catalogue.models import Product
 
 
-def products(requests):
+ 
+def products(request):
+    context = {}
     products = Product.objects.all()
-    product_list = []
-    for product in products:
-        product_list.append(product.title)
-    return HttpResponse(f"Products: {product_list} ")
+    context['products'] = products
+    return render(request, 'catalogue/products.html', context)
+    

@@ -3,5 +3,5 @@ from catalogue.views import products
 
 
 urlpatterns = [
-    path('products', products)
+    path('', products)
 ]

@@ -2,14 +2,15 @@ from django.contrib import admin
 
 from django.contrib.admin import register
 
-from catalogue.models import Brand, Category, Product, ProductAttribute, ProductType, ProductAttributeValue
+from catalogue.models import ProductImage, Brand, Category, Product, ProductAttribute, ProductType, ProductAttributeValue
 
 
 
 class ProductAttributeInline(admin.TabularInline):
     model = ProductAttribute
 
-
+class ProductImageINline(admin.TabularInline):
+    model = ProductImage
 
 @register(Brand)
 class BrandAdmin(admin.ModelAdmin):
@@ -30,7 +31,7 @@ class ProductAdmin(admin.ModelAdmin):
         )
     search_fields = ("title", "brand", "product_type")
     list_editable = ("is_active",)
-    
+    inlines = [ProductImageINline, ]
     
     
 
@@ -49,4 +50,4 @@ class ProductTypeAdmin(admin.ModelAdmin):
 
 @register(ProductAttributeValue)
 class ProductAttributeValueAdmin(admin.ModelAdmin):
-    list_display = ("product", "value", "attribute")
+    list_display = ("product", "attribute", "value")
