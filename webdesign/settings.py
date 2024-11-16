@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'catalouge.apps.CatalougeConfig',
-    'wallet.apps.WalletConfig'
+    'wallet.apps.WalletConfig',
+    'partner.apps.PartnerConfig',
+    'basket.apps.BasketConfig'
 ]
 
 MIDDLEWARE = [
@@ -82,7 +84,6 @@ WSGI_APPLICATION = 'webdesign.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        # 'NAME' : BASE_DIR / 'db.sqlite3',
         'NAME': databases['name'],
         'USER': databases['user'],
         'PASSWORD': databases['password'],
@@ -127,6 +128,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

@@ -59,11 +59,11 @@ class Product(models.Model):
     category = models.ForeignKey(Category , on_delete=models.CASCADE, related_name="products", blank=True, null=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name="products", blank=True, null=True)
     is_active = models.BooleanField(default=True)
+    images = models.ForeignKey(on_delete=models.CASCADE, related_name="images")
 
 
     def __str__(self):
         return self.title
-
 
 
 class ProductAttributeValue(models.Model):
@@ -74,3 +74,7 @@ class ProductAttributeValue(models.Model):
     
     def __str__(self):
         return self.product
+    
+
+class ProductImage(models.Model):
+    image = models.ImageField(upload_to='catalogue/')
