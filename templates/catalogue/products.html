@@ -5,23 +5,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "main/css/style.css" %}">
     <title>محصولات</title>
 </head>
 <body>
     {% for product in products %}
-    <div class="product">
-        <br>
-        <a href="{% url 'product-detail' product.id %}" > {{product.title}} </a>
-        کد محصول: {{product.upc}}<br>
-        {{product.description}}<br>
-        {{product.product_type}}<br>
-        برند: {{product.brand}}<br>
-        {% if product.is_active == True %}
-        موجود
-        {% else %}
-        ناموجود
-        {% endif %}<br>
-        دسته بندی: {{product.category}}<br>
+    <div class="all-product">
+        <div class="product">
+            <div class="product-part">
+                <h3> <a href="{% url 'product-detail' product.id %}" > {{product.title}} </a> </h3>
+                <p>
+                    کد محصول: {{product.upc}}<br>
+                    {{product.description}}<br>
+                    {{product.product_type}}<br>
+                    برند: {{product.brand}}<br>
+                    {% if product.is_active == True %}
+                    موجود
+                    {% else %}
+                    ناموجود
+                    {% endif %}<br>
+                    دسته بندی: {{product.category}}<br>
+                </p>
+            </div>
+        </div>
     </div>
     {% endfor %}
 </body>

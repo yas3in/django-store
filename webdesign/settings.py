@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'catalogue.apps.CatalogueConfig',
     'wallet.apps.WalletConfig',
     'partner.apps.PartnerConfig',
-    'basket.apps.BasketConfig'
+    'basket.apps.BasketConfig',
+    'main.apps.MainConfig',
 ]
 
 MIDDLEWARE = [
