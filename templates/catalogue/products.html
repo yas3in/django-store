@@ -2,33 +2,34 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static "main/css/style.css" %}">
-    <title>محصولات</title>
-</head>
-<body>
-    {% for product in products %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static "catalogue/css/products.css" %}">
+        <title>محصولات</title>
+    </head>
+    <body>
     <div class="all-product">
-        <div class="product">
-            <div class="product-part">
-                <h3> <a href="{% url 'product-detail' product.id %}" > {{product.title}} </a> </h3>
-                <p>
-                    کد محصول: {{product.upc}}<br>
-                    {{product.description}}<br>
-                    {{product.product_type}}<br>
-                    برند: {{product.brand}}<br>
-                    {% if product.is_active == True %}
-                    موجود
-                    {% else %}
-                    ناموجود
-                    {% endif %}<br>
-                    دسته بندی: {{product.category}}<br>
-                </p>
+        {% for product in products %}
+            <div class="product">
+                <div class="product-part">
+                    <h3> <a href="{% url 'product-detail' product.id %}" > {{product.title}} </a> </h3>
+                    <p>
+                        کد محصول: {{product.upc}}
+                        <br>  
+                        {{product.product_type}}    
+                        <br>
+                        برند: {{product.brand}}
+                        {% if product.is_active == True %}
+                        موجود
+                        {% else %}
+                        ناموجود
+                        {% endif %}    دسته بندی: {{product.category}}
+                    </p>
+                </div>
             </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
 </body>
 </html>

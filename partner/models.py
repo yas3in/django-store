@@ -14,7 +14,7 @@ class Partner(models.Model):
 class PartnerStock(models.Model):
     partner = models.ForeignKey(Partner, related_name="partner", on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name="partner", on_delete=models.CASCADE)
-    price = models.PositiveBigIntegerField(default=0)
+    price = models.DecimalField(..., max_digits=10, decimal_places=0)
     
     
     def __str__(self):

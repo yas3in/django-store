@@ -1,5 +1,8 @@
 from django.shortcuts import render
-
+from catalogue.models import Product
 
 def index(request):
-    return render(request, "main/index.html")
+    context = {}
+    products = Product.objects.all()[:8]
+    context['products'] = products
+    return render(request, 'main/index.html', context)
