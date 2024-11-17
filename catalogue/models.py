@@ -67,6 +67,11 @@ class Product(models.Model):
     @property
     def stock(self):
         return self.partner.all().order_by('price').first()
+    
+    
+    @property
+    def image_catalogue(self):
+        return self.images.first()
         
         
 class ProductAttributeValue(models.Model):
@@ -81,5 +86,5 @@ class ProductAttributeValue(models.Model):
 
 class ProductImage(models.Model):
     image = models.ImageField(upload_to='product/')
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="product_images")
     

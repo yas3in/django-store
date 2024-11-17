@@ -1,5 +1,6 @@
 {% load static %}
 {% load humanize %}
+load media 
 
 <!DOCTYPE html>
 <html>
@@ -206,7 +207,7 @@
           <div class="box">
             <a href="">
               <div class="img-box">
-                <img src="{% static "product.image.url" %}" alt="">
+                <img src="{{ "product.image_catalogue.url" }}" alt="">
               </div>
               <div class="detail-box">
                 <h6>
