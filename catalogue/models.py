@@ -70,8 +70,8 @@ class Product(models.Model):
     
     
     @property
-    def image_catalogue(self):
-        return self.images.first()
+    def image(self):
+        return self.product_images.first()
         
         
 class ProductAttributeValue(models.Model):

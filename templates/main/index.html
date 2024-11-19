@@ -205,8 +205,12 @@
         <div class="col-sm-6 col-md-4 col-lg-3">
           <div class="box">
             <a href="">
+             
               <div class="img-box">
-                <img src="{{ "product.image_catalogue.url" }}" alt="">
+                {% for pi in products_images %}
+                <img src="{{ "pi.image.image.url" }}" alt="">
+              {% endfor %}
+
               </div>
               <div class="detail-box">
                 <h6 style="text-align: left;">
