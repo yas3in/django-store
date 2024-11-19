@@ -213,7 +213,11 @@
                   <a href="{% url "product-detail" product.id %}" style="text-align:left"> {{product.title}} </a>
                 </h6>
                   <span style="color:red; font-size:13px" dir="rtl">
+                    {% if product.stock %}
                     {{ product.stock.price|intcomma }}ریال
+                    {% else %}
+                    ناموجود
+                  {% endif %}
                   </span>
               </div>
               <div class="new">
