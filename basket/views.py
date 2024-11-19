@@ -15,4 +15,9 @@ def add_to_basket(request):
             basket.save()
         response.set_cookie('basket_id', basket.id)
         print(response)
+        
+    product = request.COOKIES.get("product_id", None)
+    if product is not None:
+        pass
+            
     return response
