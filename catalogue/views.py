@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from catalogue.models import Product, ProductImage
-
+from basket.forms import AddToBasketForm
 
  
 def products(request):
@@ -15,5 +15,7 @@ def products(request):
 def product_detail(request, id):
     context = {}
     products = Product.objects.filter(id=id)
+    form = AddToBasketForm({"product": products, 'quantity': 1})
     context['products'] = products
+    context['form'] = form
     return render(request, 'catalogue/product_detail.html', context)

@@ -47,9 +47,9 @@
             <div class="quantity">
                 <form action="{% url 'add-to-basket' %}" method="post">
                     {% csrf_token %}
-                    <input type="hidden" name="product_id" value="{{product.id}}">
-                    <input type="number" value="1" min="1">
-                    <button>افزودن به سبد خرید</button>
+                    {{ form }}
+                    <input type="hidden" name="next" value="{{request.build_absolute_uri}}">
+                    <button type="submit">افزودن به سبد خرید</button>
                 </form>
             </div>
 
