@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from catalogue.models import Product, ProductImage
 from basket.forms import AddToBasketForm
 
@@ -12,10 +12,11 @@ def products(request):
     context['products_images'] = products_images
     return render(request, 'catalogue/products.html', context)
     
+    
 def product_detail(request, id):
-    context = {}
-    products = Product.objects.filter(id=id)
-    form = AddToBasketForm({"product": products, 'quantity': 1})
-    context['products'] = products
-    context['form'] = form
-    return render(request, 'catalogue/product_detail.html', context)
+    queryset = Product.objects.filter(is_active=True).filter(id=id)
+    if queryset.exists():
+        product = queryset.first()
+        form = AddToBasketForm({"product": product.id, 'quantity': 1})
+        return render(request, 'catalogue/product_detail.html', {'product': product, 'form': form})
+    raise Http404

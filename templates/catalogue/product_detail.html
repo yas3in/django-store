@@ -1,11 +1,12 @@
 {% load static %}
+{% load humanize %}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Product Page</title>
+    <title>{{product.title}}</title>
     <!-- css -->
     <link rel="stylesheet" href="{% static "catalogue/css/product_detail.css" %}">
 </head>
@@ -17,7 +18,7 @@
     <section class="product-container">
         <!-- left side -->
         <div class="img-card">
-            <img src="img/image-1.png" alt="" id="featured-image">
+            <img src="{{product.image.image.url}}" id="featured-image">
             <!-- small img -->
             <div class="small-Card">
                 <img src="img/image-1.png" alt="" class="small-Img">
@@ -27,10 +28,9 @@
             </div>
         </div>
         <!-- Right side -->
-        <div class="product-info">
-            {% for product in products %}
+        <div class="product-info" dir="rtl">
             <h3>{{product.title}}</h3>
-            <h5>قیمت: {{product.stock.price}} ریال</h5>
+            <h5>قیمت: {{product.stock.price|intcomma}} ریال</h5>
             <p>کد محصول: {{product.upc}}</p>
             <p>{{product.description}}</p>
 
@@ -78,7 +78,6 @@
                     <p>Free</p>
                 </div>
             </div>
-            {% endfor %}
         </div>
     </section>
 
