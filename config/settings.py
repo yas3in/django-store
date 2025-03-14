@@ -41,12 +41,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
-    'blog.apps.BlogConfig',
-    'catalogue.apps.CatalogueConfig',
-    'wallet.apps.WalletConfig',
-    'partner.apps.PartnerConfig',
-    'basket.apps.BasketConfig',
-    'main.apps.MainConfig',
+
+    # my apps
+    'apps.blog',
+    'apps.catalogue',
+    'apps.main',
+    'apps.basket',
+    'apps.wallet',
 ]
 
 MIDDLEWARE = [
