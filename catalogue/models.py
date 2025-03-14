@@ -12,6 +12,7 @@ class ProductType(models.Model):
     
 class Category(models.Model):
     name = models.CharField(max_length=32)
+    
     # فیلد جدول خود را با سلف به همان جدول کلید خارجی میکنیم
     parent = models.ForeignKey('self', on_delete=models.CASCADE, related_name="children", null=True, blank=True)
 
