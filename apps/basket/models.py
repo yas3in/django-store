@@ -8,10 +8,8 @@ class Basket(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="basket", null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
 
-
     def __str__(self):
         return f'{self.user}'
-
 
     def add(self, product, qty=1):
         
@@ -22,7 +20,6 @@ class Basket(models.Model):
         else:
             product_line = self.lines.create(product=product, quantity=qty)
         return product_line
-
 
     def authenticated(self, user):
         if user.is_authenticated:
@@ -36,7 +33,6 @@ class Basket(models.Model):
         elif self.user is not None:
             return False
         return True
-
 
     @classmethod
     def get_basket(cls, basket_id):

@@ -42,12 +42,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.humanize',
 
-    # my apps
+    # My Apps
     'apps.blog',
     'apps.catalogue',
     'apps.main',
     'apps.basket',
     'apps.wallet',
+
+    # Other Apps
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -86,12 +89,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': databases['name'],
-        'USER': databases['user'],
-        'PASSWORD': databases['password'],
-        'HOST': databases['host'],
-        'PORT': databases['port'],
+        'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': databases['name'],
+        # 'USER': databases['user'],
+        # 'PASSWORD': databases['password'],
+        # 'HOST': databases['host'],
+        # 'PORT': databases['port'],
+        "NAME": BASE_DIR / "db.db",
      }
 }
 

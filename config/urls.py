@@ -22,6 +22,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
+wallet_api_urls_front = [
+    path("api/front/transaction/", include("apps.wallet.url.front"))
+]
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.main.urls')),
@@ -29,4 +33,4 @@ urlpatterns = [
     path('products/', include("apps.catalogue.urls")),
     path('wallet/', include('apps.wallet.urls')),
     path('basket/', include('apps.basket.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + wallet_api_urls_front

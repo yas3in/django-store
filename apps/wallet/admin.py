@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin import register
-from .models import Transaction, UserBalance
+from .models import Transaction, UserBalance, TransferTransaction
 
 
 @register(Transaction)
@@ -13,3 +13,8 @@ class TransactionAdmin(admin.ModelAdmin):
 @register(UserBalance)
 class UserBalanceAdmin(admin.ModelAdmin):
     list_display = ("user", "balance", "created_time")
+
+
+@register(TransferTransaction)
+class TransferTransactionAdmin(admin.ModelAdmin):
+    list_display = ["sender_transaction", "receiver_transaction"]
