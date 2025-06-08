@@ -1,5 +1,6 @@
 from django.db import models
-from apps.blog.models import User
+from django.conf import settings
+
 from django.db.models import Sum, Q
 from django.db.models.functions import Coalesce 
 
@@ -12,7 +13,7 @@ class Transaction(models.Model):
         ("Transfer Sent", "Transfer Sent")
     )
     
-    user = models.ForeignKey(User, related_name="transactions", on_delete=models.RESTRICT)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="transactions", on_delete=models.RESTRICT)
     transaction_type = models.CharField(choices=TRANSACTION_TYPE_CHICES, max_length=152)
     amount = models.BigIntegerField()
     created_time = models.DateTimeField(auto_now_add=True)
@@ -37,7 +38,7 @@ class Transaction(models.Model):
 
 
 class UserBalance(models.Model):
-    user = models.ForeignKey(User, related_name="userbalance", on_delete=models.RESTRICT)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, related_name="userbalance", on_delete=models.RESTRICT)
     balance = models.BigIntegerField()
     created_time = models.DateTimeField(auto_now_add=True)
     
@@ -51,7 +52,7 @@ class UserBalance(models.Model):
         
     @classmethod
     def create_record_in_table(cls):
-        for user in User.objects.all():
+        for user in settings.AUTH_USER_MODEL.objects.all():
             record = cls.create_instance_in_table(user)
             
 

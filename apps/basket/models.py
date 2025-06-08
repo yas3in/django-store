@@ -1,11 +1,11 @@
 from django.db import models
-from django.contrib.auth.models import User
+from apps.accounts.models import CustomUser
 from apps.catalogue.models import Product
 from django.http import Http404
 
 
 class Basket(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="basket", null=True, blank=True)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="basket", null=True, blank=True)
     created_time = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

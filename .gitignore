@@ -1,1 +1,5 @@
 webdesign/local_setting.py
+
+
+*.db
+.sqlite3

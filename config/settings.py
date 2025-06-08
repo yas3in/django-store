@@ -48,10 +48,17 @@ INSTALLED_APPS = [
     'apps.main',
     'apps.basket',
     'apps.wallet',
+    'apps.accounts',
 
     # Other Apps
     'rest_framework'
 ]
+
+
+AUTH_USER_MODEL = "accounts.CustomUser"
+
+AUTHENTICATION_BACKENDS = ["apps.lib.backend.SmsBackend", ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -68,7 +75,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [BASE_DIR / "templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,11 +97,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': databases['name'],
-        # 'USER': databases['user'],
-        # 'PASSWORD': databases['password'],
-        # 'HOST': databases['host'],
-        # 'PORT': databases['port'],
         "NAME": BASE_DIR / "db.db",
      }
 }

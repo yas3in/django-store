@@ -1,8 +1,8 @@
 #!/bin/bash
 
-NAME="datavoice"
-DJANGODIR=/var/www/datavoice/src
-SOCKFILE=/var/www/datavoice/src/home.sock
+NAME=""
+DJANGODIR=/var/www/.../src
+SOCKFILE=/var/www/.../src/home.sock
 NUM_WORKERS=1
 USER=root
 GROUP=root
