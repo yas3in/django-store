@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'apps.accounts',
 
     # Other Apps
-    'rest_framework'
+    'rest_framework',
 ]
 
 
