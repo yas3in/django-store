@@ -55,9 +55,8 @@ INSTALLED_APPS = [
 ]
 
 
-AUTH_USER_MODEL = "accounts.CustomUser"
 
-AUTHENTICATION_BACKENDS = ["apps.lib.backend.SmsBackend", ]
+AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend", "apps.lib.backend.UserBackend"]
 
 
 MIDDLEWARE = [

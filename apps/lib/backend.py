@@ -1,10 +1,9 @@
 from django.contrib.auth.backends import BaseBackend
-from random import randint
 
 from apps.accounts.models import CustomUser
 
 
-class SmsBackend(BaseBackend):
+class UserBackend(BaseBackend):
     def authenticate(self, request, username=None, password=None):
         try:
             user = CustomUser.objects.get(phone_number=username)
