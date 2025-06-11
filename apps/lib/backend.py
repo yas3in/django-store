@@ -10,7 +10,7 @@ class UserBackend(BaseBackend):
         except CustomUser.DoesNotExist:
             return None
         
-        if user.check_password(password) and user.is_active:
+        if user.is_active:
             return user
         return None
 
