@@ -23,7 +23,7 @@ class SmsModel(models.Model):
             code=code
         )
         return ins
-    
+
     def verified(self):
         ins = SmsModel.objects.get(id=self.id)
         ins.is_used = True

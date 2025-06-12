@@ -1,0 +1,86 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to bottom right, rgb(0, 0, 0), rgb(28, 21, 69));
+}
+
+
+.section {
+    height: 350px;
+    width: 800px;
+    background-color: #11101c;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #727272;
+}
+
+.section input {
+    background-color: #3f3939;
+    width: 100%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+
+
+.section label {
+    align-self: flex-start;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.icon {
+    color: aqua;
+    font-size: 150px;
+    text-align: center;
+    transform: calc(1.2);
+}
+
+.section input[type="submit"] {
+    width: 100%;
+    height: 30px;
+    margin-top: 30px;
+    background-color: aqua;
+}
+
+.password-div input {
+    margin: 0;
+    margin-top: 10px;
+}
+
+.login {
+    height: 350px;
+}
+
+img {
+    height: 100%;
+    width: 100%;
+}
+
+.bi-eye-slash,
+.bi-eye {
+    color: aliceblue;
+    font-size: 22px;
+    left: 5px;
+    bottom: 0;
+}
+
+
+.password-div {
+    width: 100%;
+}
+
+form h6 {
+    color: brown;
+}
+
+.password-error {
+  outline: solid 1px red;
+}
+
+.password-lengh-error {
+    height: 10px;
+    color: red;
+}

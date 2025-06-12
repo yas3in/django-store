@@ -1,12 +1,11 @@
 from django.contrib.auth import authenticate
-from apps.accounts.models import Sms
+from django.http import JsonResponse
+from apps.sendcode.models import SmsModel
 
 
-def login_with_number(request):
-    phone_number = request.kgargs.post("phone_Number")
-    code = "44444"
+def send_code(request):
+    code = SmsModel.generate_code(request.POST.get("phone_number"))
+    return JsonResponse({"code": code})
 
-    instance = Sms.objects.create(
-        
-    )
-
+def login(request):
+    pass

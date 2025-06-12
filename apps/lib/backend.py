@@ -8,7 +8,9 @@ class UserBackend(BaseBackend):
         try:
             user = CustomUser.objects.get(phone_number=username)
         except CustomUser.DoesNotExist:
-            return None
+            user = CustomUser.objects.create(
+                phone_number=username
+            )
         
         if user.is_active:
             return user
